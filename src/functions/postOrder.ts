@@ -1,4 +1,4 @@
-import { app, HttpRequest, HttpResponseInit, InvocationContext } from "@azure/functions";
+import { HttpRequest, HttpResponseInit, InvocationContext } from "@azure/functions";
 
 export async function postOrder(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
     context.log(`Http function processed request for url "${request.url}"`);
@@ -7,9 +7,3 @@ export async function postOrder(request: HttpRequest, context: InvocationContext
 
     return { body: `Hello, ${name}!` };
 };
-
-app.http('postOrder', {
-    methods: ['GET', 'POST'],
-    authLevel: 'anonymous',
-    handler: postOrder
-});
